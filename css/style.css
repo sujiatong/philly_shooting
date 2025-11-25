@@ -1,0 +1,280 @@
+/* Reset */
+* {
+    box-sizing: border-box;
+  }
+  
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+  }
+  
+/* HEADER */
+#header {
+    padding: 12px 20px;
+    background: #1e1e2f;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;   /* <-- TITLE ON TOP - controls below */
+    align-items: flex-start;  /* left align */
+    gap: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+  }
+
+/* Title */
+#title {
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+  
+  /* MAIN LAYOUT: FLEX */
+  #main {
+    display: flex;
+    height: calc(100vh - 60px);
+    gap: 16px;
+    padding: 16px;
+  }
+  
+  /* MAP SECTION (LEFT) */
+  #map-section {
+    flex: 2;
+    min-width: 0;
+  }
+  
+  #map-container {
+    width: 100%;
+    height: 100%;
+  }
+  
+  #map {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    background: #ddd;
+  }
+  
+  /* SIDE PANEL (RIGHT) */
+  #side-panel {
+    flex: 1;
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 16px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+    overflow-y: auto;
+  }
+  
+  .panel-title {
+    margin: 0 0 8px;
+    font-size: 1rem;
+    font-weight: bold;
+  }
+  
+  .panel-subtitle {
+    margin: 0 0 16px;
+    font-size: 0.85rem;
+    color: #555;
+  }
+  
+  /* Responsive: stack on mobile */
+  @media (max-width: 900px) {
+    #main {
+      flex-direction: column;
+    }
+  
+    #side-panel {
+      height: auto;
+      max-width: 100%;
+    }
+  }
+  
+  /* Header controls container (search + dropdown) */
+#header-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  /* 搜尋盒子外框 */
+  #search-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 4px 8px;
+    border-radius: 999px;
+    background: #ffffff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* 搜尋輸入框 */
+  #location-search {
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 0.85rem;
+    min-width: 180px;
+  }
+  
+  /* 搜尋按鈕 */
+  #search-button {
+    border: none;
+    outline: none;
+    padding: 4px 10px;
+    margin-left: 6px;
+    font-size: 0.8rem;
+    border-radius: 999px;
+    background: #ff6b6b;
+    color: #ffffff;
+    cursor: pointer;
+    transition: background 0.15s ease, transform 0.1s ease;
+  }
+  
+  #search-button:hover {
+    background: #ff5252;
+    transform: translateY(-1px);
+  }
+  
+/* Suggestions list */
+#suggestions {
+  position: absolute;
+  top: 40px;          /* directly below input box */
+  left: 0;
+  width: 100%;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-top: none;
+  max-height: 180px;
+  overflow-y: auto;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  z-index: 9999;      /* ensure visible above map */
+  display: block;
+}
+  
+  #suggestions li {
+    padding: 6px 10px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    color: #333;      
+  }
+  
+  #suggestions li:hover {
+    background-color: #ff6b6b;
+  }
+  
+  /* dropdown（年或 district） */
+  #district-dropdown {
+    border: none;
+    outline: none;
+    padding: 6px 12px;
+    font-size: 0.8rem;
+    border-radius: 999px;
+    background: #ffffff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+  }
+  
+  /* 小螢幕時：搜尋 + dropdown 滿寬、換行 */
+@media (max-width: 900px) {
+    #header {
+      flex-wrap: wrap;
+      height: auto;
+      padding: 10px 12px;
+      gap: 8px;
+    }
+  
+/* Search + Dropdown group (now below the title) */
+#header-controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;         /* make them stretch under title */
+  }
+  
+#search-box {
+    flex: 1;
+    min-width: 180px;
+    }
+  
+#district-dropdown {
+    margin-top: 4px;
+    }
+
+
+
+/* Date Filter Panel */
+#date-filter {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  margin-top: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  font-size: 14px;
+  width: fit-content;
+}
+
+/* Labels */
+#date-filter label {
+  font-weight: 500;
+  color: #333;
+  margin-right: 4px;
+}
+
+/* Date Inputs */
+#date-filter input[type="date"] {
+  padding: 6px 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 13px;
+  color: #333;
+  background: #fafafa;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+#date-filter input[type="date"]:focus {
+  border-color: #d32f2f;
+  background: #fff;
+}
+
+/* Buttons */
+#date-filter button {
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-size: 13px;
+  transition: background 0.25s, color 0.25s;
+}
+
+/* Apply filter button */
+#date-filter-btn {
+  background: #d32f2f;
+  color: #fff;
+}
+
+#date-filter-btn:hover {
+  background: #b71c1c;
+}
+
+/* Clear button */
+#date-clear-btn {
+  background: #eee;
+  color: #333;
+}
+
+#date-clear-btn:hover {
+  background: #ddd;
+}
+
+
+}
+  

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shooting Dashboard - Map Test</title>
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+    <!-- Your custom CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header id="header">
+        <div id="title">Shooting Dashboard in Philadelphia</div>
+
+        <div id="header-controls">
+            <div id="search-box">
+
+            <input
+                type="text"
+                id="location-search"
+                placeholder="Search for a location..."
+            />
+          
+            <button id="search-button">Search</button>
+          
+              <!-- Suggestion dropdown -->
+            <ul id="suggestions"></ul>
+
+        </div>
+
+        <div id="date-filter">
+            <label for="date-start">From:</label>
+            <input type="date" id="date-start" min="2014-01-01" max="2025-12-31">
+          
+            <label for="date-end">To:</label>
+            <input type="date" id="date-end"   min="2014-01-01" max="2025-12-31">
+          
+            <button id="date-filter-btn">Filter</button>
+        </div>
+          
+
+        </div>
+          
+    </header>
+
+    <!-- MAIN DASHBOARD LAYOUT -->
+    <main id="main">
+
+        <!-- LEFT: MAP -->
+        <section id="map-section">
+            <div id="map-container">
+                <div id="map"></div>
+            </div>
+        </section>
+
+        <!-- RIGHT: CHART PANEL -->
+        <aside id="side-panel">
+            <h2 class="panel-title">Summary & Charts</h2>
+            <p class="panel-subtitle">
+                Charts will go here later (Chart.js: monthly trend, districts, etc.)
+            </p>
+
+            <!-- Future Chart.js canvases
+            <canvas id="monthlyChart"></canvas>
+            <canvas id="districtChart"></canvas>
+            -->
+        </aside>
+
+    </main>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <!-- Main JS -->
+    <script src="js/main.js"></script>
+    <script src="js/controls.js"></script>
+
+
+</body>
+</html>

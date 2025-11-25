@@ -16,20 +16,9 @@
 
     <!-- HEADER -->
     <header id="header">
-        <div id="title">Shooting Dashboard in Philadelphia</div>
+        <div id="title">Shooting victims dashboard in Philadelphia</div>
 
         <div id="header-controls">
-
-            <!-- DATE FILTER FIRST -->
-            <div id="date-filter">
-                <label for="date-start">From:</label>
-                <input type="date" id="date-start" min="2014-01-01" max="2025-12-31">
-        
-                <label for="date-end">To:</label>
-                <input type="date" id="date-end"   min="2014-01-01" max="2025-12-31">
-        
-                <button id="date-filter-btn">Filter</button>
-            </div>
         
             <!-- SEARCH BOX NEXT -->
             <div id="search-box">
@@ -54,11 +43,51 @@
 
         <!-- RIGHT: CHART PANEL -->
         <aside id="side-panel">
-            <h2 class="panel-title">Summary & Charts</h2>
+
+            <!-- DATE FILTER FIRST -->
+            <div id="date-filter">
+                <label for="date-start">From:</label>
+                <input type="date" id="date-start" min="2014-01-01" max="2025-12-31">
+        
+                <label for="date-end">To:</label>
+                <input type="date" id="date-end"   min="2014-01-01" max="2025-12-31">
+        
+                <button id="date-filter-btn">Filter</button>
+            </div>
+
+
+            <h1 class="panel-title">Summary & Charts</h1>
+
             <p class="panel-subtitle">
                 Charts will go here later (Chart.js: monthly trend, districts, etc.)
             </p>
+        
+          <!--
+         <div id="side-tabs">
+                <button class="side-tab active" data-section="filters-section">
+                  Filters & Search
+                </button>
+                <button class="side-tab" data-section="time-series-section">
+                  Time Series (Year)
+                </button>
+            </div> -->
 
+
+
+             <!-- SECTION 2: Time Series (Year dropdown + chart) -->
+            <section class="side-section" id="time-series-section">
+
+              <!--  <div class="side-block">
+                <label class="block-label" for="year-dropdown">Select Year</label>  -->
+                <!-- JS will populate / react to this later -->
+             <!--    <select id="year-dropdown">
+                    <option value="">All years</option>  -->
+                <!-- e.g. 2014–2025 options can be added via JS -->
+            <!--    </select>
+            </div>  -->
+
+
+             </section>
             
 
             <div id="chart-container">
@@ -75,9 +104,8 @@
             <canvas id="districtChart"></canvas>
             -->
 
-            <p class="panel-subtitle"> the date soure from 2014 to 2025
-                latest data in 11/24/2025
-            </p>            
+            <p class="panel-subtitle"> Data coverage: 2014–2025 (latest update: 2025-11-24)</p>    
+            <p class="panel-subtitle"> Source: Philadelphia Open Data Portal – Shooting victims </p>        
         </aside>
 
     </main>

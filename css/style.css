@@ -88,52 +88,85 @@
     }
   }
   
-  /* Header controls container (search + dropdown) */
+  /* Wrap both controls side by side */
 #header-controls {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  
-  /* 搜尋盒子外框 */
-  #search-box {
-    position: relative;
-    display: flex;
-    align-items: center;
-    padding: 4px 8px;
-    border-radius: 999px;
-    background: #ffffff;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
-  }
-  
-  /* 搜尋輸入框 */
-  #location-search {
-    border: none;
-    outline: none;
-    background: transparent;
-    font-size: 0.85rem;
-    min-width: 180px;
-  }
-  
-  /* 搜尋按鈕 */
-  #search-button {
-    border: none;
-    outline: none;
-    padding: 4px 10px;
-    margin-left: 6px;
-    font-size: 0.8rem;
-    border-radius: 999px;
-    background: #ff6b6b;
-    color: #ffffff;
-    cursor: pointer;
-    transition: background 0.15s ease, transform 0.1s ease;
-  }
-  
-  #search-button:hover {
-    background: #ff5252;
-    transform: translateY(-1px);
-  }
-  
+  display: flex;
+  align-items: center;
+  gap: 20px;            /* space between date filter & search box */
+  margin-top: 10px;
+  flex-wrap: nowrap;    /* force side-by-side, no line break */
+}
+
+/* DATE FILTER BOX */
+#date-filter {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+  white-space: nowrap;       /* prevents dates from wrapping */
+}
+
+/* Labels */
+#date-filter label {
+  font-weight: 500;
+  color: #333;
+}
+
+/* Date inputs */
+#date-filter input[type="date"] {
+  padding: 6px 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: #fafafa;
+  font-size: 14px;
+}
+
+/* Filter button */
+#date-filter-btn {
+  background: #d32f2f;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+#date-filter-btn:hover {
+  background: #b71c1c;
+}
+
+/* SEARCH BOX */
+#search-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+#search-box input {
+  padding: 8px 12px;
+  border-radius: 50px;
+  border: 1px solid #ccc;
+  width: 260px;
+}
+
+#search-box button {
+  background: #b71c1c;
+  padding: 8px 16px;
+  border-radius: 20px;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+#search-box button:hover {
+  background: #d32f2f;
+}
+
 /* Suggestions list */
 #suggestions {
   position: absolute;
@@ -141,7 +174,6 @@
   left: 0;
   width: 100%;
   background: #fff;
-  border: 1px solid #ccc;
   border-top: none;
   max-height: 180px;
   overflow-y: auto;
@@ -151,92 +183,17 @@
   z-index: 9999;      /* ensure visible above map */
   display: block;
 }
-  
-  #suggestions li {
-    padding: 6px 10px;
-    font-size: 0.8rem;
-    cursor: pointer;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    color: #333;      
-  }
-  
-  #suggestions li:hover {
-    background-color: #ff6b6b;
-  }
 
-  /* Date Filter Panel */
-#date-filter {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 12px;
-  background: #ffffff;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  margin-top: 10px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-  font-size: 14px;
-  width: fit-content;
-}
-
-/* Labels */
-#date-filter label {
-  font-weight: 500;
-  color: #333;
-  margin-right: 4px;
-}
-
-/* Date Inputs */
-#date-filter input[type="date"] {
-  padding: 6px 8px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 13px;
-  color: #333;
-  background: #fafafa;
-  outline: none;
-  transition: border-color 0.2s;
-}
-
-#date-filter input[type="date"]:focus {
-  border-color: #d32f2f;
-  background: #fff;
-}
-
-/* Buttons */
-#date-filter button {
-  padding: 6px 12px;
-  border-radius: 6px;
-  border: none;
+#suggestions li {
+  padding: 6px 10px;
+  font-size: 0.8rem;
   cursor: pointer;
-  font-size: 13px;
-  transition: background 0.25s, color 0.25s;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  color: #333;      
 }
 
-/* Apply filter button */
-#date-filter-btn {
-  background: #d32f2f;
-  color: #fff;
+#suggestions li:hover {
+  background-color: #ff6b6b;
 }
-
-#date-filter-btn:hover {
-  background: #b71c1c;
-}
-
-/* Clear button */
-#date-clear-btn {
-  background: #eee;
-  color: #333;
-}
-
-#date-clear-btn:hover {
-  background: #ddd;
-}
-
-
-
-  
-}
-  

@@ -88,6 +88,8 @@ fetch(geojsonUrl)
 
     // pass layer into controls
     initControls(map, data.features, shootingsLayer);
+    initYearChart(data.features);
+
 
     map.fitBounds(shootingsLayer.getBounds(), { padding: [20, 20] });
   })

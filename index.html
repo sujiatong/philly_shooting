@@ -59,20 +59,39 @@
                 Charts will go here later (Chart.js: monthly trend, districts, etc.)
             </p>
 
+            
+
+            <div id="chart-container">
+                <div id="chart-panel">
+                    <h2>Shooting Count by Year</h2>
+                    <canvas id="yearChart"></canvas>
+                  </div>
+                  
+            </div>
+
+
             <!-- Future Chart.js canvases
             <canvas id="monthlyChart"></canvas>
             <canvas id="districtChart"></canvas>
             -->
+
+            <p class="panel-subtitle"> the date soure from 2014 to 2025
+                latest data in 11/24/2025
+            </p>            
         </aside>
 
     </main>
 
     <!-- Leaflet JS -->
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 
     <!-- Main JS -->
     <script src="js/main.js"></script>
     <script src="js/controls.js"></script>
+    <script src="js/charts.js"></script>
+
 
 
 </body>

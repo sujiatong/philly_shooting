@@ -165,48 +165,8 @@
   #suggestions li:hover {
     background-color: #ff6b6b;
   }
-  
-  /* dropdown（年或 district） */
-  #district-dropdown {
-    border: none;
-    outline: none;
-    padding: 6px 12px;
-    font-size: 0.8rem;
-    border-radius: 999px;
-    background: #ffffff;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
-    cursor: pointer;
-  }
-  
-  /* 小螢幕時：搜尋 + dropdown 滿寬、換行 */
-@media (max-width: 900px) {
-    #header {
-      flex-wrap: wrap;
-      height: auto;
-      padding: 10px 12px;
-      gap: 8px;
-    }
-  
-/* Search + Dropdown group (now below the title) */
-#header-controls {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    width: 100%;         /* make them stretch under title */
-  }
-  
-#search-box {
-    flex: 1;
-    min-width: 180px;
-    }
-  
-#district-dropdown {
-    margin-top: 4px;
-    }
 
-
-
-/* Date Filter Panel */
+  /* Date Filter Panel */
 #date-filter {
   display: flex;
   align-items: center;
@@ -276,5 +236,7 @@
 }
 
 
+
+  
 }
   

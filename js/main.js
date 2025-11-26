@@ -17,7 +17,7 @@ L.tileLayer(
 ).addTo(map);
 
 
-  
+
 // -------------------------
 
 const geojsonUrl = 'data/shootings-3.geojson';
@@ -87,8 +87,10 @@ fetch(geojsonUrl)
     }).addTo(map);
 
     // pass layer into controls
-    initControls(map, data.features, shootingsLayer);
-    initYearChart(data.features);
+    initControls(map, data.features, shootingsLayer); // <-- from controls.js
+    initYearChart(data.features); // <-- from charts.js 
+    addShootingsToMap(data.features);  // <-- from this yearFilter file
+
 
 
     map.fitBounds(shootingsLayer.getBounds(), { padding: [20, 20] });

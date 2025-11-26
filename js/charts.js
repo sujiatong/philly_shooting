@@ -1,4 +1,7 @@
-// charts.js – Chart.js time series (yearly counts)
+// charts.js – Chart.js yearly counts as BAR chart + map filter
+
+let yearChart = null; // global Chart.js instance
+let selectedYear = null; // track currently selected year
 
 function initYearChart(features) {
     if (!features || !Array.isArray(features)) {
@@ -37,20 +40,22 @@ function initYearChart(features) {
 
     const ctx = canvas.getContext("2d");
 
-    new Chart(ctx, {
-        type: "line",   // ⬅️ time series line chart
+    // destroy old chart if re-initializing
+    if (yearChart) {
+        yearChart.destroy();
+    }
+
+    yearChart = new Chart(ctx, {
+        type: "bar",   // ⬅️ change to BAR chart
         data: {
             labels: sortedYears,
             datasets: [{
                 label: "Shootings per Year",
                 data: counts,
-                fill: true,
-                borderWidth: 2,
-                tension: 0.2,          // a bit smooth
-                pointRadius: 3,
-                pointHoverRadius: 5,
-                borderColor: "rgba(211, 47, 47, 1)",
-                backgroundColor: "rgba(211, 47, 47, 0.6)"
+                borderWidth: 1,
+                // you can style color in CSS or here if you want
+                backgroundColor: "rgba(211, 47, 47, 0.7)",
+                borderColor: "rgba(211, 47, 47, 1)"
             }]
         },
         options: {
@@ -61,7 +66,12 @@ function initYearChart(features) {
                 },
                 title: {
                     display: true,
-                    text: "Shootings over Time (by Year)"
+                    text: "Shootings per Year (click bar to filter map)"
+                },
+                tooltip: {
+                    callbacks: {
+                        label: (context) => `Count: ${context.raw}`
+                    }
                 }
             },
             scales: {
@@ -70,9 +80,6 @@ function initYearChart(features) {
                         display: true,
                         text: "Year"
                     }
-                    // you *could* do type: 'linear' here if you want numeric axis
-                    // type: 'linear',
-                    // ticks: { stepSize: 1 }
                 },
                 y: {
                     title: {
@@ -80,6 +87,33 @@ function initYearChart(features) {
                         text: "Number of Shootings"
                     },
                     beginAtZero: true
+                }
+            },
+            onClick: (evt, elements) => {
+                // elements = which bar was clicked
+                if (!elements.length) {
+                    // click on empty space → reset filter
+                    selectedYear = null;
+                    if (typeof window.filterMapByYear === "function") {
+                        window.filterMapByYear(null);
+                    }
+                    return;
+                }
+
+                const index = elements[0].index;
+                const year = sortedYears[index];
+
+                // clicking the same year again → toggle off
+                if (selectedYear === year) {
+                    selectedYear = null;
+                    if (typeof window.filterMapByYear === "function") {
+                        window.filterMapByYear(null); // show all years
+                    }
+                } else {
+                    selectedYear = year;
+                    if (typeof window.filterMapByYear === "function") {
+                        window.filterMapByYear(year); // show only this year
+                    }
                 }
             }
         }
@@ -94,3 +128,21 @@ function initCharts(features) {
     initYearChart(features);
 }
 window.initCharts = initCharts;
+
+// inside new Chart(... options: { ... })
+onClick: (evt, elements) => {
+    if (!elements.length) return;
+
+    const index = elements[0].index;
+    const year = sortedYears[index];   // label for that bar
+
+    if (typeof window.filterMapByYear === "function") {
+        window.filterMapByYear(year);  // ⬅️ only that year's points on map
+    }
+}
+
+document.getElementById("reset-year").addEventListener("click", () => {
+    if (typeof window.filterMapByYear === "function") {
+        window.filterMapByYear(null);   // show all years again
+    }
+});

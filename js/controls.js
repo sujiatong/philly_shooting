@@ -4,8 +4,8 @@
 let controlsMap = null;
 let controlsFeatures = [];
 // let shootingsLayer = null; // the L.geoJSON layer from main.js
-let originalLayer = null;
-let dateFilteredLayer = null;
+let originalLayer = null; // reference to the original full layer
+let dateFilteredLayer = null; // layer for date-filtered points
 
 
 

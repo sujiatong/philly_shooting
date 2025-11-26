@@ -216,3 +216,17 @@
   position: relative;
   height: 220px;   /* adjust as you like */
 }
+
+#reset-year {
+  background: #d32f2f;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+#reset-year:hover {
+  background: #b71c1c;
+}

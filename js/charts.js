@@ -132,17 +132,19 @@ window.initCharts = initCharts;
 // inside new Chart(... options: { ... })
 onClick: (evt, elements) => {
     if (!elements.length) return;
-
+  
     const index = elements[0].index;
-    const year = sortedYears[index];   // label for that bar
-
+    const year = sortedYears[index];
+  
     if (typeof window.filterMapByYear === "function") {
-        window.filterMapByYear(year);  // ⬅️ only that year's points on map
+      window.filterMapByYear(year);  // only that year’s points on map
     }
-}
-
+  }
+  
+// Reset button to clear year filter
 document.getElementById("reset-year").addEventListener("click", () => {
     if (typeof window.filterMapByYear === "function") {
         window.filterMapByYear(null);   // show all years again
+        window.filterByDateRange(null); // clear date filter as well
     }
 });

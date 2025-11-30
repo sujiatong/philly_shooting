@@ -96,6 +96,9 @@ fetch(geojsonUrl)
     // chart (bar) – from charts.js
     initYearChart(data.features); // or initCharts(data.features) if you use wrapper
 
+    initFatal(data.features);    // lazy init fatal chart
+
+
     // ❌ IMPORTANT: REMOVE this line, it created a duplicate layer
     // addShootingsToMap(data.features);
 

@@ -62,7 +62,6 @@
 
 
             <p class="panel-subtitle">
-                Charts will go here later (Chart.js: monthly trend, districts, etc.)
             </p>
         
 
@@ -73,6 +72,22 @@
                   </div>
                   
             </div>
+
+
+            <!-- ⭐ NEW YEARLY ANALYSIS PANEL ⭐ -->
+            <div id="year-analysis" class="chart-section">
+                <h2>Yearly Analysis</h2>
+                <p id="year-analysis-subtitle" class="panel-subtitle"></p>
+              
+                <h3>Fatal vs Non-fatal</h3>
+                <canvas id="chart-year-fatal">
+
+                <h3>Indoor vs Outdoor</h3>
+                <canvas id="chart-year-indoor"></canvas>
+              </div>
+              
+
+            
 
 
             <!-- Future Chart.js canvases
@@ -96,6 +111,8 @@
     <script src="js/main_1.js"></script>
     <script src="js/controls_1.js"></script>
     <script src="js/charts.js"></script>
+    <script src="js/fatal.js"></script>
+
 
 
 

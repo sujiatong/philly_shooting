@@ -92,30 +92,52 @@ function initYearChart(features) {
             onClick: (evt, elements) => {
                 // elements = which bar was clicked
                 if (!elements.length) {
+            
                     // click on empty space → reset filter
                     selectedYear = null;
+            
                     if (typeof window.filterMapByYear === "function") {
                         window.filterMapByYear(null);
                     }
+            
+                    // also reset fatal chart
+                    if (typeof window.updateFatalByYear === "function") {
+                        window.updateFatalByYear(null);
+                    }
                     return;
                 }
-
+            
                 const index = elements[0].index;
                 const year = sortedYears[index];
-
+            
                 // clicking the same year again → toggle off
                 if (selectedYear === year) {
                     selectedYear = null;
+            
                     if (typeof window.filterMapByYear === "function") {
                         window.filterMapByYear(null); // show all years
                     }
+            
+                    // also reset fatal chart
+                    if (typeof window.updateFatalByYear === "function") {
+                        window.updateFatalByYear(null);
+                    }
+            
                 } else {
                     selectedYear = year;
+            
                     if (typeof window.filterMapByYear === "function") {
                         window.filterMapByYear(year); // show only this year
                     }
+            
+                    // ⭐ 这里加：让 fatal chart 只显示该年的数据
+                    if (typeof window.updateFatalByYear === "function") {
+                        window.updateFatalByYear(year);
+                    }
                 }
             }
+
+            
         }
     });
 }
@@ -146,5 +168,6 @@ document.getElementById("reset-year").addEventListener("click", () => {
     if (typeof window.filterMapByYear === "function") {
         window.filterMapByYear(null);   // show all years again
         window.filterByDateRange(null); // clear date filter as well
+        window.updateFatalByYear(null); // reset fatal chart
     }
 });

@@ -24,12 +24,10 @@
 
 /* Title */
 #title {
-    font-size: 10.5 rem;
-    font-weight: 600;
-    margin: 0;
-    
-  }
-  
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
   /* MAIN LAYOUT: FLEX */
   #main {
     display: flex;
@@ -68,15 +66,33 @@
   
   .panel-title {
     margin: 0 0 15px;
-    font-size: 1rem;
+    font-size: 1.5rem;
     font-weight: bold;
   }
   
   .panel-subtitle {
     margin: 0 0 20px;
-    font-size: 0.85rem;
+    font-size: 1.35rem;
+    font-weight: 800;
     color: #555;
   }
+
+  year-analysis-subtitle {
+    margin: 0 0 10px;
+    font-size: 1rem;
+    font-weight: 800;
+    color: #555;
+  }
+
+
+  .panel-subtitle-2 {
+    margin: 0 0 10px;
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: #555454d1;
+  }
+
+
   
   /* Responsive: stack on mobile */
   @media (max-width: 900px) {
@@ -255,10 +271,11 @@
   margin-top: 10px;
 }
 
-#sex-chart-wrapper {
-  display: none;
-}
 
-#race-chart-wrapper {
+
+#sex-chart-wrapper,
+#race-chart-wrapper,
+#age-chart-wrapper,
+#pyramid-chart-wrapper {
   display: none;
 }

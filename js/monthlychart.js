@@ -42,7 +42,7 @@ function initMonthlyChart(features) {
     options: {
       responsive: true,
       plugins: {
-        legend: { display: true },
+        legend: { display: false },
         title: {
           display: true,
           text: "Monthly Shooting Trend (All years)"
@@ -75,7 +75,7 @@ function initMonthlyChart(features) {
   window.updateMonthlyByYear = updateMonthlyByYear;
 }
 
-window.initmonthlychart= initmonthlychart;
+window.initMonthlyChart= initMonthlyChart;
 
 
 // ----------------------

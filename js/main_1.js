@@ -118,10 +118,16 @@ fetch(geojsonUrl)
     initFatal(features);            
 
     // Sex distribution – sex.js
-    initSex(features);              
+    //initSex(features);              
 
     // Race distribution – race.js
-    initRace(features);             
+    initRace(features);      
+    
+    // Age distribution – age.js
+    //initAge(features);
+
+    // pyramid chart – pyramid.js
+    initPyramid(features);
 
     map.fitBounds(shootingsLayer.getBounds(), { padding: [20, 20] });
   })

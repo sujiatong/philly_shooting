@@ -95,88 +95,115 @@ function initYearChart(features) {
         if (!elements.length) {
           // click on empty space → reset filter
           selectedYear = null;
-
+      
           if (typeof window.filterMapByYear === "function") {
             window.filterMapByYear(null);
           }
-
+      
           // reset monthly trend to ALL years
           if (typeof window.updateMonthlyByYear === "function") {
             window.updateMonthlyByYear(null);
           }
-
+      
           // reset fatal chart (all years)
           if (typeof window.updateFatalByYear === "function") {
             window.updateFatalByYear(null);
           }
-
+      
           // reset sex chart (all years)
-          if (typeof window.updateSexByYear === "function") {
-            window.updateSexByYear(null);
-          }
-
+          // if (typeof window.updateSexByYear === "function") {
+          //  window.updateSexByYear(null);
+          // }
+      
           // reset race chart (all years)
           if (typeof window.updateRaceByYear === "function") {
             window.updateRaceByYear(null);
           }
-
+      
+          // reset age chart (all years)
+          // if (typeof window.updateAgeByYear === "function") {
+          //  window.updateAgeByYear(null);
+          // }
+          
+          if (typeof window.updatePyramidByYear === "function") {
+            window.updatePyramidByYear(null);
+          }
+      
           return;
         }
-
+      
         const index = elements[0].index;
         const year = sortedYears[index];
-
+      
         // clicking the same year again → toggle off
         if (selectedYear === year) {
           selectedYear = null;
-
+      
           if (typeof window.filterMapByYear === "function") {
             window.filterMapByYear(null); // show all years
           }
-
+      
           // reset monthly trend to ALL years 
           if (typeof window.updateMonthlyByYear === "function") {
             window.updateMonthlyByYear(null);
           }
-
+      
           if (typeof window.updateFatalByYear === "function") {
             window.updateFatalByYear(null); // reset fatal chart
           }
-
-          if (typeof window.updateSexByYear === "function") {
-            window.updateSexByYear(null); // reset sex chart
-          }
-
+      
+          // if (typeof window.updateSexByYear === "function") {
+          //  window.updateSexByYear(null); // reset sex chart
+          // }
+      
           if (typeof window.updateRaceByYear === "function") {
             window.updateRaceByYear(null); // reset race chart
           }
+      
+          // if (typeof window.updateAgeByYear === "function") {
+          //  window.updateAgeByYear(null); // reset age chart
+          // `}
 
+          if (typeof window.updatePyramidByYear === "function") {
+            window.updatePyramidByYear(null); // reset pyramid chart
+          }
+      
         } else {
           // select a new year
           selectedYear = year;
-
+      
           if (typeof window.filterMapByYear === "function") {
             window.filterMapByYear(year); // show only this year
           }
-
+      
           // make fatal chart show only this year
           if (typeof window.updateFatalByYear === "function") {
             window.updateFatalByYear(year);
           }
-
+      
           // update monthly trend to this year
           if (typeof window.updateMonthlyByYear === "function") {
             window.updateMonthlyByYear(year);
           }
-
+      
           // update sex chart to this year
-          if (typeof window.updateSexByYear === "function") {
-            window.updateSexByYear(year);
-          }
-
+          // if (typeof window.updateSexByYear === "function") {
+          //  window.updateSexByYear(year);
+          // }
+      
           // update race chart to this year
           if (typeof window.updateRaceByYear === "function") {
             window.updateRaceByYear(year);
+          }
+      
+          // update age chart to this year  
+          // if (typeof window.updateAgeByYear === "function") {
+          //  window.updateAgeByYear(year);
+          //}
+
+          // update pyramid chart to this year
+          if (typeof window.updatePyramidByYear === "function") {
+            window.updatePyramidByYear(year);
           }
         }
       }
@@ -222,12 +249,21 @@ document.addEventListener("DOMContentLoaded", () => {
       window.updateFatalByYear(null);
     }
 
-    if (typeof window.updateSexByYear === "function") {
-      window.updateSexByYear(null);
-    }
+    // if (typeof window.updateSexByYear === "function") {
+    //  window.updateSexByYear(null);
+    // }
 
     if (typeof window.updateRaceByYear === "function") {
       window.updateRaceByYear(null);
     }
+
+    // if (typeof window.updateAgeByYear === "function") {
+    //  window.updateAgeByYear(null);
+    // }
+
+    if (typeof window.updatePyramidByYear === "function") {
+      window.updatePyramidByYear(null);
+    }
+
   });
 });

@@ -16,7 +16,8 @@
 
     <!-- HEADER -->
     <header id="header">
-        <div id="title">Shooting victims dashboard in Philadelphia</div>
+
+        <div id="title">Shooting victims dashboard in Philadelphia </div>
 
         <div id="header-controls">
         
@@ -86,8 +87,14 @@
                     <label for="feature-select">Select analysis:</label>
                     <select id="feature-select">
                       <option value="fatal" selected>Fatal vs Non-fatal</option>
-                      <option value="sex">Sex distribution</option>
+                      <!--
+                        <option value="sex">Sex distribution</option>
+                      -->
                       <option value="race">Race distribution</option>
+                      <!--
+                      <option value="age">Age distribution</option>
+                      -->
+                      <option value="pyramid">Age–Sex pyramid</option>
                     </select>
                 </div>
                   
@@ -95,21 +102,39 @@
                     <canvas id="chart-year-fatal"></canvas>
                 </div>
                   
+                <!--
                 <div id="sex-chart-wrapper" class="chart-wrapper">
                     <canvas id="chart-year-sex"></canvas>
                 </div>
+                -->
                   
                 <div id="race-chart-wrapper" class="chart-wrapper">
                     <canvas id="chart-year-race"></canvas>
                 </div>
+
+
+                <!--
+                <div id="age-chart-wrapper" class="chart-wrapper">
+                    <canvas id="chart-year-age"></canvas>
+                </div>
+                -->
+
+                <div id="pyramid-chart-wrapper" class="chart-wrapper">
+                    <canvas id="chart-age-sex-pyramid"></canvas>
+                </div>
                   
 
-              
-
             
-            <p class="panel-subtitle"> Data coverage: 2014–2025 (latest update: 2025-11-24)</p>    
-            <p class="panel-subtitle"> Source: Philadelphia Open Data Portal – Shooting victims </p>  
-            <p class="panel-subtitle"> Created by: Jiatong Su </p>      
+            <p class="panel-subtitle-2"> Created by: Jiatong Su </p>      
+            <p class="panel-subtitle-2"> Data coverage: 2014–2025 (latest update: 2025-11-24)</p>    
+            <p class="panel-subtitle-2">
+                Source: 
+                <a href="https://opendataphilly.org/datasets/shooting-victims/" 
+                   target="_blank" 
+                   rel="noopener noreferrer">
+                   Philadelphia Open Data Portal – Shooting victims
+                </a>
+            </p>
         </aside>
 
     </main>
@@ -120,14 +145,26 @@
 
 
     <!-- Main JS -->
-    <script src="js/main_1.js"></script>
     <script src="js/controls_1.js"></script>
     <script src="js/charts_1.js"></script>
     <script src="js/monthlychart.js"></script>
     <script src="js/fatal.js"></script>
+
+    <!--
     <script src="js/sexChart.js"></script>
+    -->
+
     <script src="js/raceChart.js"></script>
+
+    <!--
+    <script src="js/ageChart.js"></script>
+    -->
+    
+    <script src="js/pyramid.js"></script>
     <script src="js/panel-toggle.js"></script>
+
+    <script src="js/main_1.js"></script>
+
 
 
 

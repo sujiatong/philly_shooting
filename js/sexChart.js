@@ -44,14 +44,14 @@ function initSex(features) {
         data: [malePct, femalePct, unknownPct],
         borderWidth: 1,
         backgroundColor: [
-          "rgba(25, 118, 210, 0.8)",   // Male
-          "rgba(216, 27, 96, 0.8)",    // Female
-          "rgba(120, 120, 120, 0.8)"   // Unknown
+          "rgba(61, 91, 159, 0.85)",   // Male
+          "rgba(255,200,162, 0.85)",    // Female
+          "rgba(120, 120, 120, 0.85)",  // Unknown
         ],
         borderColor: [
-          "rgba(25, 118, 210, 1)",
-          "rgba(216, 27, 96, 1)",
-          "rgba(120, 120, 120, 1)"
+          "rgba(61, 91, 159, 0.85)",   // Male
+          "rgba(255,200,162, 0.85)",    // Female
+          "rgba(120, 120, 120, 0.85)",  // Unknown
         ]
       }]
     },
@@ -155,15 +155,15 @@ const border = [];
 if (male > 0) {
   labels.push("Male");
   data.push(malePct);
-  bg.push("rgba(25, 118, 210, 0.8)");
-  border.push("rgba(25, 118, 210, 1)");
+  bg.push("rgba(61, 91, 159, 0.8)");
+  border.push("rgba(61, 91, 159, 1)");
 }
 
 if (female > 0) {
   labels.push("Female");
   data.push(femalePct);
-  bg.push("rgba(216, 27, 96, 0.8)");
-  border.push("rgba(216, 27, 96, 1)");
+  bg.push("rgba(255,200,162, 0.8)");
+  border.push("rgba(255,200,162, 1)");
 }
 
 if (unknown > 0) {

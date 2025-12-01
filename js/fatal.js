@@ -45,11 +45,11 @@ function initFatal(features) {
         borderWidth: 1,
         backgroundColor: [
           "rgba(183, 28, 28, 0.75)",  // Fatal
-          "rgba(34, 139, 195, 0.8)"  // Non-fatal
+          "rgba(120, 120, 120, 0.85)",  // grey 
         ],
         borderColor: [
           "rgba(183, 28, 28, 1)",
-          "rgba(34, 139, 195, 1)"
+          "rgba(120, 120, 120, 0.85)",  // grey 
         ]
       }]
     },

@@ -44,19 +44,20 @@ function initRace(features) {
         label: "Share of victims",
         data: [blackPct, whitePct, asianPct, unknownPct],
         borderWidth: 1,
-        barThickness: 30,
-        maxBarThickness: 24,
+        barThickness: 35, // 厚度
+        maxBarThickness: 30, // 最大厚度
         backgroundColor: [
-          "rgba(33, 150, 243, 0.7)",   // Black：淡一點
-          "rgba(244, 67, 54, 0.85)",   // White
-          "rgba(76, 175, 80, 0.9)",    // Asian：飽和一點
-          "rgba(120, 120, 120, 0.9)"   // Unknown：深灰一點
+          "rgba(61,  91, 159, 0.85)",   // primary blue - Black
+          "rgba(231, 179, 79, 0.85)",    // light orange - White
+          "rgba(217, 98, 88, 0.85)",    // yellow/orange - Asian
+          "rgba(120, 120, 120, 0.85)",  // grey - Unknown
+        
         ],
         borderColor: [
-          "rgba(33, 150, 243, 1)",
-          "rgba(244, 67, 54, 1)",
-          "rgba(76, 175, 80, 1)",
-          "rgba(120, 120, 120, 1)"
+          "rgba(61,  91, 159, 0.85)",   // primary blue - Black
+          "rgba(231,179, 79, 0.85)",    // light orange - White
+          "rgba(217, 98, 88, 0.85)",    // yellow/orange - Asian
+          "rgba(120, 120, 120, 0.85)",  // grey - Unknown
         ]
       }]
     },

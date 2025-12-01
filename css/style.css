@@ -24,7 +24,7 @@
 
 /* Title */
 #title {
-    font-size: 1.2rem;
+    font-size: 1.5 rem;
     font-weight: 600;
   }
   
@@ -56,16 +56,16 @@
   
   /* SIDE PANEL (RIGHT) */
   #side-panel {
-    flex: 1;
+    flex: 1; 
     background: #ffffff;
-    border-radius: 10px;
+    border-radius: 30px; /* rounded corners */
     padding: 16px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.15);
     overflow-y: auto;
   }
   
   .panel-title {
-    margin: 0 0 8px;
+    margin: 0 0 15px;
     font-size: 1rem;
     font-weight: bold;
   }
@@ -83,7 +83,7 @@
     }
   
     #side-panel {
-      height: auto;
+      height: 100%;
       max-width: 100%;
     }
   }
@@ -148,7 +148,7 @@
 }
 
 #search-box input {
-  padding: 8px 12px;
+  padding: 8px 20px;
   border-radius: 50px;
   border: 1px solid #ccc;
   width: 260px;
@@ -214,7 +214,9 @@
 
 .chart-wrapper {
   position: relative;
-  height: 220px;   /* adjust as you like */
+  height: 300px;   /* adjust as you like */
+  margin-bottom: 20px;
+
 }
 
 #reset-year {
@@ -229,4 +231,32 @@
 
 #reset-year:hover {
   background: #b71c1c;
+}
+
+#feature-select {
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background: #fafafa;
+  font-size: 14px;
+  margin-left: 10px;
+}
+
+
+#chart-container p {
+  font-size: 0.85rem;
+  color: #555;
+  margin-bottom: 35px;
+
+}
+.chart-wrapper {
+  margin-top: 10px;
+}
+
+#sex-chart-wrapper {
+  display: none;
+}
+
+#race-chart-wrapper {
+  display: none;
 }

@@ -35,6 +35,15 @@ function shootingOnEachFeature(feature, layer) {
   const year = props.year || '';
   const wound = props.wound || '';
   const sex = props.sex || '';
+  const age = props.age || '';
+  const fatal = props.fatal || '';
+  const raceMap = {
+    "A": "Asian",
+    "B": "Black",
+    "W": "White",
+    "U": "Unknown/Other"
+  };
+  
 
   let html = `
     <div class="shooting-popup">
@@ -43,6 +52,10 @@ function shootingOnEachFeature(feature, layer) {
       ${year ? `<p><strong>Year:</strong> ${year}</p>` : ''}
       ${wound ? `<p><strong>Wound:</strong> ${wound}</p>` : ''}
       ${sex ? `<p><strong>Sex:</strong> ${sex}</p>` : ''}
+      ${props.fatal !== undefined ? `<p><strong>Fatal:</strong> ${props.fatal === 1 ? 'Yes' : 'No'}</p>` : ''}
+      ${props.age ? `<p><strong>Age:</strong> ${props.age}</p>` : ''}
+      ${props.race ? `<p><strong>Race:</strong> ${raceMap[props.race] || "Unknown"}</p>` : ''}
+
     </div>
   `;
 
@@ -75,7 +88,7 @@ fetch(geojsonUrl)
     };
 
     // 🔴 store all features globally for later filtering
-    allShootingFeatures = data.features;
+    allShootingFeatures = data.features;   // 建议在文件顶部：let allShootingFeatures = [];
 
     // 🔴 create ONE global shootingsLayer (no const here)
     shootingsLayer = L.geoJSON(data, {
@@ -90,21 +103,30 @@ fetch(geojsonUrl)
       onEachFeature: shootingOnEachFeature
     }).addTo(map);
 
+    const features = data.features;  // ✅ 之后统一用这个变量
+
     // pass layer into controls
-    initControls(map, data.features, shootingsLayer); // <-- from controls.js
+    initControls(map, features, shootingsLayer);
 
-    // chart (bar) – from charts.js
-    initYearChart(data.features); // or initCharts(data.features) if you use wrapper
+    // 年份 bar chart – charts.js
+    initYearChart(features);         
 
-    initFatal(data.features);    // lazy init fatal chart
+    // 月份趋势 – monthlychart.js
+    initMonthlyChart(features);     
 
+    // Fatal vs Non-fatal – fatal.js
+    initFatal(features);            
 
-    // ❌ IMPORTANT: REMOVE this line, it created a duplicate layer
-    // addShootingsToMap(data.features);
+    // Sex distribution – sex.js
+    initSex(features);              
+
+    // Race distribution – race.js
+    initRace(features);             
 
     map.fitBounds(shootingsLayer.getBounds(), { padding: [20, 20] });
   })
   .catch(err => console.error('GeoJSON ERROR:', err));
+
 
 
 // ===========================================

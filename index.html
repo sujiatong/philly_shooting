@@ -78,23 +78,35 @@
             <div id="year-analysis" class="chart-section">
                 <h2>Yearly Analysis</h2>
                 <p id="year-analysis-subtitle" class="panel-subtitle"></p>
-              
-                <h3>Fatal vs Non-fatal</h3>
-                <canvas id="chart-year-fatal">
 
-                <h3>Indoor vs Outdoor</h3>
-                <canvas id="chart-year-indoor"></canvas>
-              </div>
+                <canvas id="monthlyChart"></canvas>
+
+              
+                <div id="feature-select-container">
+                    <label for="feature-select">Select analysis:</label>
+                    <select id="feature-select">
+                      <option value="fatal" selected>Fatal vs Non-fatal</option>
+                      <option value="sex">Sex distribution</option>
+                      <option value="race">Race distribution</option>
+                    </select>
+                </div>
+                  
+                <div id="fatal-chart-wrapper" class="chart-wrapper">
+                    <canvas id="chart-year-fatal"></canvas>
+                </div>
+                  
+                <div id="sex-chart-wrapper" class="chart-wrapper">
+                    <canvas id="chart-year-sex"></canvas>
+                </div>
+                  
+                <div id="race-chart-wrapper" class="chart-wrapper">
+                    <canvas id="chart-year-race"></canvas>
+                </div>
+                  
+
               
 
             
-
-
-            <!-- Future Chart.js canvases
-            <canvas id="monthlyChart"></canvas>
-            <canvas id="districtChart"></canvas>
-            -->
-
             <p class="panel-subtitle"> Data coverage: 2014–2025 (latest update: 2025-11-24)</p>    
             <p class="panel-subtitle"> Source: Philadelphia Open Data Portal – Shooting victims </p>  
             <p class="panel-subtitle"> Created by: Jiatong Su </p>      
@@ -110,8 +122,13 @@
     <!-- Main JS -->
     <script src="js/main_1.js"></script>
     <script src="js/controls_1.js"></script>
-    <script src="js/charts.js"></script>
+    <script src="js/charts_1.js"></script>
+    <script src="js/monthlychart.js"></script>
     <script src="js/fatal.js"></script>
+    <script src="js/sexChart.js"></script>
+    <script src="js/raceChart.js"></script>
+    <script src="js/panel-toggle.js"></script>
+
 
 
 

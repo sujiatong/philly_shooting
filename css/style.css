@@ -24,8 +24,10 @@
 
 /* Title */
 #title {
-    font-size: 1.5 rem;
+    font-size: 10.5 rem;
     font-weight: 600;
+    margin: 0;
+    
   }
   
   /* MAIN LAYOUT: FLEX */

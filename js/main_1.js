@@ -108,10 +108,10 @@ fetch(geojsonUrl)
     // pass layer into controls
     initControls(map, features, shootingsLayer);
 
-    // 年份 bar chart – charts.js
+    //  bar chart – charts.js
     initYearChart(features);         
 
-    // 月份趋势 – monthlychart.js
+    // monthlychart.js
     initMonthlyChart(features);     
 
     // Fatal vs Non-fatal – fatal.js
